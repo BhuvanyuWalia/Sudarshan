@@ -1,4 +1,7 @@
 {
+  "egines" : {
+    "node" : "23.11.0"
+  },
   "name": "sudarshan",
   "version": "1.0.0",
   "main": "app.js",

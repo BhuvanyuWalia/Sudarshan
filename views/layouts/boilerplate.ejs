@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <% const success = typeof success !== 'undefined' ? success : null; %>
-    <% const error = typeof error !== 'undefined' ? error : null; %>
+    <% const flashSuccess = typeof success !== 'undefined' ? success : null; %>
+    <% const flashError = typeof error !== 'undefined' ? error : null; %>
     <%- include('../includes/navbar.ejs') %>
     <div class="flash-container">
-        <% if (success && success.length) { %>
+        <% if (flashSuccess && flashSuccess.length) { %>
             <div class="alert alert-success alert-dismissible fade show flash-msg" role="alert">
-                <%= success %>
+                <%= flashSuccess %>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         <% } %>
-        <% if (error && error.length) { %>
+        <% if (flashError && flashError.length) { %>
             <div class="alert alert-danger alert-dismissible fade show flash-msg" role="alert">
-                <%= error %>
+                <%= flashError %>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         <% } %>

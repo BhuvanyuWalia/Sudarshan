@@ -69,10 +69,6 @@ async function main(){
     await mongoose.connect(process.env.MONGO_URL);
 }
 
-app.use((req,res,next)=>{
-    res.locals.currentUser = req.user;
-    next();
-});
 // -------------------------- BASE ROUTES
 app.get("/",(req,res)=>{
     res.redirect("/home");

@@ -1,0 +1,80 @@
+<% layout("layouts/boilerplate") %>
+
+<h2 class="text-center">Edit Details of <%=country.name%></h2>
+<form action="/countries/<%= country._id %>?_method=PUT" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+  <div class="col-8 offset-2">
+    <div class="mb-3">
+      <label for="name" class="form-label">Enter Name</label>
+      <input type="text" name="country[name]" id="name" class="form-control" value="<%=country.name%>" required>
+      <div class="invalid-feedback">Country name is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="capital" class="form-label">Enter Capital</label>
+      <input type="text" name="country[capital]" id="capital" class="form-control" value="<%=country.capital%>" required>
+      <div class="invalid-feedback">Capital name is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="region" class="form-label">Select Region</label>
+      <select class="form-select" name="country[region]" required>
+        <option disabled value="">Choose...</option>
+        <option value="Asia" <%=country.region === "Asia" ? "selected" : ""%>>Asia</option>
+        <option value="Europe" <%=country.region === "Europe" ? "selected" : ""%>>Europe</option>
+        <option value="Asia/Europe" <%=country.region === "Asia/Europe" ? "selected" : ""%>>Asia/Europe</option>
+        <option value="Africa" <%=country.region === "Africa" ? "selected" : ""%>>Africa</option>
+        <option value="Americas" <%=country.region === "Americas" ? "selected" : ""%>>Americas</option>
+        <option value="Oceania" <%=country.region === "Oceania" ? "selected" : ""%>>Oceania</option>
+      </select>
+      <div class="invalid-feedback">Please select a region.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="gdp" class="form-label">Enter GDP</label>
+      <input type="number" name="country[GDP]" id="gdp" class="form-control" value="<%=country.GDP%>" required>
+      <div class="invalid-feedback">GDP must be a non-negative number.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="population" class="form-label">Enter Population</label>
+      <input type="number" name="country[population]" id="population" class="form-control" value="<%=country.population%>" required>
+      <div class="invalid-feedback">Population must be a positive number.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="currency" class="form-label">Enter Currency</label>
+      <input type="text" name="country[currency]" id="currency" class="form-control" value="<%=country.currency%>" required>
+      <div class="invalid-feedback">Currency is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Existing Flag</label><br>
+      <img src="<%= country.flag %>" alt="Current Flag" width="100">
+    </div>
+
+    <div class="mb-3">
+      <label for="flag" class="form-label">Upload New Flag (optional)</label>
+      <input type="file" name="flag" id="flag" class="form-control" accept="image/*">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Submit</button>
+    <a href="/countries/<%= country._id %>" class="btn btn-danger">Cancel</a>
+  </div>
+</form>
+
+<script>
+  // Bootstrap form validation
+  (function () {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>

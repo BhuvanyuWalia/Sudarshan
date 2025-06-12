@@ -1,0 +1,31 @@
+<% layout('./layouts/boilerplate.ejs') %>
+
+<div class="country-details mt-4 mb-3">
+    <img src="<%= country.flag %>" alt="flag" class="country-flag-img">
+    <br>
+    <br>
+    <h1 class="card-title"><%= country.name %></h1>
+    <p class="card-text">
+        Captial - <%= country.capital %>
+        <br>
+        Region - <%= country.region %>
+        <br>
+        GDP - <%= country.GDP.toLocaleString("en-IN") %> US Billion Dollars
+        <br>
+        Population - <%= country.population.toLocaleString("en-IN") %>
+        <br>
+        Currency - <%= country.currency %>
+    </p>
+</div>
+
+<div class="row mb-3" style="width: 20%;">
+    <% if(currentUser){ %>
+        <form action="/countries/<%=country._id%>?_method=DELETE" class="show-form-btn col-md-4" method="POST">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+        <form action="/countries/<%=country._id%>/edit" class="show-form-btn col-md-4" method="GET">
+            <button class="btn btn-primary">Edit</button>
+        </form>
+    <% } %>
+    <a href="/countries" class="col-md-4"><button class="btn btn-dark">Back</button></a>
+</div>

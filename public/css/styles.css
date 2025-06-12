@@ -1,0 +1,107 @@
+body{
+    background-color: rgb(153, 153, 245);
+}
+.logo-img{
+    height: 3.5rem;
+}
+.card{
+    /* background-color: aliceblue; */
+    background-color: rgb(153, 153, 245);
+    padding: 1rem 0.5rem 0;
+}
+.org-card{
+    background-color: white;
+}
+.nav-link{
+    font-size: large;
+}
+.nav-link:hover{
+    text-decoration: underline;
+}
+.country-card{
+    border: none;
+}
+.country-flag{
+    border-radius: 5px;
+    height: 11rem;
+}
+.country-title{
+    font-weight: 600;
+    font-size: large;
+}
+a{
+    text-decoration: none;
+    padding: 0;
+}
+.country-flag-img{
+    height: 15rem;
+}
+.home-card{
+    height: 30rem;
+    background-color: antiquewhite;
+    color: rgb(201, 47, 4);
+    border-radius: 10px;
+}
+.org-logo-img{
+    height: 20rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: white;
+}
+.search-country-div{
+    background-color: aliceblue;
+    height: 14rem;
+    padding: 0 5px 0;
+    border-radius: 10px;
+}
+.user-form{
+    background-color: rgb(186, 241, 246);
+    padding: 1rem;
+    border: 2px solid white;
+    border-radius: 1rem;
+}
+.flash-container {
+  position: fixed;
+  top: 80px; /* Adjust if you have a sticky navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050; /* Bootstrap navbar is ~1030 */
+  width: 80%;
+  max-width: 600px;
+  pointer-events: none;
+}
+.flash-msg {
+  pointer-events: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0.95;
+}
+footer {
+    font-size: 0.9rem;
+    background-color: #212529;
+    color: #f8f9fa;
+}
+footer a {
+    color: #0dcaf0;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+.home-option-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 20px;
+}
+.home-option-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+.dashboard-card {
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+.dashboard-card:hover {
+  transform: scale(1.02);
+}
+.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}

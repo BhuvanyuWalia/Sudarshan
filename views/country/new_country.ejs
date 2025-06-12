@@ -1,0 +1,75 @@
+<% layout("layouts/boilerplate") %>
+
+<h2 class="text-center mt-3">Add New Country</h2>
+<form action="/countries" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+  <div class="col-8 offset-2">
+    <div class="mb-3">
+      <label for="name" class="form-label">Enter Name</label>
+      <input type="text" name="country[name]" id="name" class="form-control" required>
+      <div class="invalid-feedback">Country name is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="capital" class="form-label">Enter Capital</label>
+      <input type="text" name="country[capital]" id="capital" class="form-control" required>
+      <div class="invalid-feedback">Capital name is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="region" class="form-label">Select Region</label>
+      <select class="form-select" name="country[region]" required>
+        <option selected disabled value="">Choose...</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Asia/Europe">Asia/Europe</option>
+        <option value="Africa">Africa</option>
+        <option value="Americas">Americas</option>
+        <option value="Oceania">Oceania</option>
+      </select>
+      <div class="invalid-feedback">Please select a region.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="gdp" class="form-label">Enter GDP</label>
+      <input type="number" name="country[GDP]" id="gdp" class="form-control" value="0" required>
+      <div class="invalid-feedback">GDP must be a non-negative number.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="population" class="form-label">Enter Population</label>
+      <input type="number" name="country[population]" id="population" class="form-control" value="10000" required>
+      <div class="invalid-feedback">Population must be a positive number.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="currency" class="form-label">Enter Currency</label>
+      <input type="text" name="country[currency]" id="currency" class="form-control" required>
+      <div class="invalid-feedback">Currency is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="flag" class="form-label">Upload Flag</label>
+      <input type="file" name="flag" id="flag" class="form-control" accept="image/*" required>
+      <div class="invalid-feedback">Please upload a flag image.</div>
+    </div>
+
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </div>
+</form>
+
+<script>
+  // Bootstrap form validation
+  (function () {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>

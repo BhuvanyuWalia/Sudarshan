@@ -1,0 +1,83 @@
+<% layout('./layouts/boilerplate.ejs') %>
+
+<div class="mt-3 search-country-div">
+    <h3 class="card-title text-center mb-2">Search Country</h3>
+    <form class="row g-2 mb-4" method="GET" action="/countries/find">
+        <div class="col-md-4">
+            <input type="text" name="name" class="form-control" placeholder="Search Country">
+          </div>
+          <div class="col-md-4">
+            <input type="text" name="capital" class="form-control" placeholder="Search Capital">
+          </div>
+          <div class="col-md-4">
+            <input type="text" name="currency" placeholder="Search Currency" class="form-control">
+        </div>
+          <div class="col-md-12 text-center">
+            <label class="form-label">Select Regions - </label>
+            <% const sel = query.region || [] %>
+            <% const chosen = Array.isArray(sel) ? sel : [sel] %>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="region" id="regAsia" value="Asia"
+                <% if (chosen.includes("Asia")) { %>checked<% } %> >
+              <label class="form-check-label" for="regAsia">Asia</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="region" id="regEurope" value="Europe"
+                <% if (chosen.includes("Europe")) { %>checked<% } %> >
+              <label class="form-check-label" for="regEurope">Europe</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="region" id="regEurAsia" value="Asia/Europe"
+                  <% if (chosen.includes("Asia/Europe")) { %>checked<% } %> >
+                <label class="form-check-label" for="regEurAsia">Asia/Europe</label>
+              </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="region" id="regAf" value="Africa"
+                <% if (chosen.includes("Africa")) { %>checked<% } %> >
+              <label class="form-check-label" for="regAf">Africa</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="region" id="regAm" value="Americas"
+                  <% if (chosen.includes("Americas")) { %>checked<% } %> >
+                <label class="form-check-label" for="regAm">Americas</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="region" id="regOc" value="Oceania"
+                  <% if (chosen.includes("Oceania")) { %>checked<% } %> >
+                <label class="form-check-label" for="regOc">Oceania</label>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+          <input type="number" name="minPop" class="form-control" placeholder="Min pop.">
+        </div>
+        <div class="col-md-3">
+          <input type="number" name="maxPop" class="form-control" placeholder="Max pop.">
+        </div>
+        <div class="col-md-3">
+            <input type="number" name="maxGDP" class="form-control" placeholder="Max GDP">
+        </div>
+        <div class="col-md-3">
+            <input type="number" name="minGDP" class="form-control" placeholder="Min GDP">
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary">Search</button>
+          <a href="/countries" class="btn btn-dark">clear</a>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <% for(let country of countries){ %>
+        <div class="col-md-3">
+            <a href="/countries/<%= country._id %>">
+                <div class="card country-card mb-2 mt-2" style="width: 18rem;">
+                    <img src="<%=country.flag%>" class="card-img-top country-flag" alt="flag">
+                    <div class="card-body">
+                    <p class="card-title text-center country-title"><%=country.name%></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    <% } %>
+</div>

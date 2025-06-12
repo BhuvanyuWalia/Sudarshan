@@ -1,0 +1,39 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <h1 class="text-center mb-5">Welcome <%= currentUser ? currentUser.username : 'Guest' %> 👋</h1>
+
+  <div class="row text-center mb-5">
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm p-4 dashboard-card border-start border-4 border-primary">
+        <h3 class="text-primary"><i class="bi bi-flag-fill"></i> Countries</h3>
+        <h2><%= totalCountries %></h2>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm p-4 dashboard-card border-start border-4 border-success">
+        <h3 class="text-success"><i class="bi bi-building"></i> Organisations</h3>
+        <h2><%= totalOrganisations %></h2>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm p-4 dashboard-card border-start border-4 border-info">
+        <h3 class="text-info"><i class="bi bi-globe"></i> Regions</h3>
+        <h2><%= totalRegions %></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center mt-4">
+    <div class="col-md-6">
+      <a href="/countries" class="btn btn-outline-primary w-100 py-3">
+        <i class="bi bi-flag"></i> View All Countries
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a href="/organisations" class="btn btn-outline-success w-100 py-3">
+        <i class="bi bi-building-check"></i> View All Organisations
+      </a>
+    </div>
+  </div>
+</div>

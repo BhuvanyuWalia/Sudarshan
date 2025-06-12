@@ -11,12 +11,13 @@
         <a class="nav-link active" aria-current="page" href="/home">Home</a>
         <a class="nav-link active" href="/organisations">Organisations</a>
         <a class="nav-link active" href="/countries">Countries</a>
-        <% if(currentUser){ %>
+        <% const user = typeof currentUser !== 'undefined' ? currentUser : null; %>
+        <% if(user){ %>
           <a class="nav-link active" href="/countries/new">Add Country</a>
         <% } %>
       </div>
       <div class="navbar-nav"></div>
-        <% if(!currentUser){ %>
+        <% if(!user){ %>
           <div class="navbar-nav ms-auto">
             <a href="/register" class="nav-link ms-auto"><b>Register</b></a>
             <a href="/login" class="nav-link ms-auto"><b>Login</b></a>

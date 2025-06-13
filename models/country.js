@@ -32,6 +32,10 @@ const countrySchema = new mongoose.Schema({
     flag: {
         type: String,    // This will store image path or URL
         required: true
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 });
 

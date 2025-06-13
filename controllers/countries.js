@@ -12,13 +12,14 @@ module.exports.postNewCountry = async (req, res) => {
     }
     const newCountry = new Country(req.body.country);
     newCountry.flag = req.file.path;
+    newCountry.author = req.user._id;
     await newCountry.save();
     req.flash("success", "New Country Added!");
     res.redirect("/countries");
 };
 
 module.exports.showCountry = async (req,res)=>{
-    let country = await Country.findById(req.params._id);
+    let country = await Country.findById(req.params._id).populate("author");
     res.render('country/show_country.ejs',{country});
 };
 

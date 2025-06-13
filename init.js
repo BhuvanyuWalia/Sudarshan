@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Organisation = require('./models/organisation.js');
 const Country = require('./models/country.js');
@@ -9,10 +10,10 @@ main().then(()=>{
 });
 
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/sudarshan");
+    await mongoose.connect(process.env.MONGO_URL);
 }
 
-const initOrgData = [
+let initOrgData = [
     {
       "name": "United Nations",
       "headquarters": "New York, USA",
@@ -144,9 +145,9 @@ async function addOrgData(){
     }
 }
 
-// addOrgData(); -------- DONT RUN THIS AGAIN !!!!!
+// addOrgData();
 
-const initCountryData = [
+let initCountryData = [
   {
     "name": "United States of America",
     "capital": "Washington, D.C.",
@@ -331,6 +332,8 @@ const initCountryData = [
 
 async function saveCountryData(){
   try {
+    await Country.deleteMany({});
+    initCountryData = initCountryData.map((obj)=>({...obj, author:'684b5d7778ff94b9b1eafe75'}));
     await Country.insertMany(initCountryData);
     console.log("Country data is saved");
   } catch (err){

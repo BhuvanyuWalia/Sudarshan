@@ -5,7 +5,7 @@ const {storage} = require("../cloudinary");
 const upload = multer({storage});
 const Country = require('../models/country.js');
 // ---------------------------------------------- MIDDLEWARES
-const {isLoggedIn, validateCountry} = require("../middleware.js");
+const {isLoggedIn, validateCountry, isAuthor} = require("../middleware.js");
 // ---------------------------------------------- ERROR HANDLERS
 const wrapAsync = require("../utils/wrapAsync.js");
 // ---------------------------------------------- CONTROLLER
@@ -32,10 +32,10 @@ router.route("/find")
 
 router.route("/:_id")
     .get(wrapAsync(countryController.showCountry))
-    .put(isLoggedIn, validateCountry, upload.single('flag'), wrapAsync(countryController.updateCountry))
-    .delete(isLoggedIn, wrapAsync(countryController.deleteCountry));
+    .put(isLoggedIn, validateCountry, isAuthor, upload.single('flag'), wrapAsync(countryController.updateCountry))
+    .delete(isLoggedIn, isAuthor, wrapAsync(countryController.deleteCountry));
 
 router.route("/:_id/edit")
-    .get(isLoggedIn, wrapAsync(countryController.renderEditForm));
+    .get(isLoggedIn, isAuthor, wrapAsync(countryController.renderEditForm));
 
 module.exports = router;

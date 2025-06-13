@@ -1,0 +1,56 @@
+<% layout("layouts/boilerplate") %>
+
+<h2 class="text-center mt-3">Edit Organisation</h2>
+<form action="/organisations/<%= org._id %>?_method=PUT" method="POST" class="needs-validation" novalidate>
+  <div class="col-8 offset-2">
+    <div class="mb-3">
+      <label for="name" class="form-label">Organisation Name</label>
+      <input type="text" name="organisation[name]" id="name" class="form-control" value="<%= org.name %>" required>
+      <div class="invalid-feedback">Organisation name is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="headquarters" class="form-label">Headquarters</label>
+      <input type="text" name="organisation[headquarters]" id="headquarters" class="form-control" value="<%= org.headquarters %>" required>
+      <div class="invalid-feedback">Headquarters is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="formation_date" class="form-label">Date of Formation</label>
+      <input type="date" name="organisation[formation_date]" id="formation_date" class="form-control" value="<%= org.formation_date.toISOString().split('T')[0] %>">
+    </div>
+
+    <div class="mb-3">
+      <label for="purpose" class="form-label">Purpose</label>
+      <textarea name="organisation[purpose]" id="purpose" class="form-control" rows="3"><%= org.purpose %></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="website" class="form-label">Official Website</label>
+      <input type="url" name="organisation[website]" id="website" class="form-control" value="<%= org.website %>">
+    </div>
+
+    <div class="mb-3">
+      <label for="logo" class="form-label">Logo URL</label>
+      <input type="text" name="organisation[logo]" id="logo" class="form-control" value="<%= org.logo %>">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Update Organisation</button>
+  </div>
+</form>
+
+<script>
+  (function () {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>

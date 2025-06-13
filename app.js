@@ -55,8 +55,9 @@ app.use((req,res,next)=>{
     res.locals.currentUser = req.user;
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    res.locals.active = "";
     next();
-})
+});
 
 // ---------------------------------------------- CONNECTING TO MONGO DB
 main().then(()=>{
@@ -68,6 +69,8 @@ main().then(()=>{
 async function main(){
     await mongoose.connect(process.env.MONGO_URL);
 }
+
+
 
 // -------------------------- BASE ROUTES
 app.get("/",(req,res)=>{

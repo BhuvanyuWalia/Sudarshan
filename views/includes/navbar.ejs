@@ -1,32 +1,37 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top nav-container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/home">
-      <img src="/insignia/sudarshan.png" alt="logo" class="logo-img">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="/home">
+      <img src="/insignia/sudarshan.png" alt="logo" class="logo-img me-2">
+      <span class="fw-bold text-white">Sudarshan</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/home">Home</a>
-        <a class="nav-link active" href="/organisations">Organisations</a>
-        <a class="nav-link active" href="/countries">Countries</a>
-        <% const user = typeof currentUser !== 'undefined' ? currentUser : null; %>
-        <% if(user){ %>
-          <a class="nav-link active" href="/countries/new">Add Country</a>
+      <div class="navbar-nav me-auto">
+        <a class="nav-link <% if(active === 'home') { %>active<% } %>" href="/home">Home</a>
+        <a class="nav-link <% if(active === 'orgs') { %>active<% } %>" href="/organisations">Organisations</a>
+        <a class="nav-link <% if(active === 'countries') { %>active<% } %>" href="/countries">Countries</a>
+        <% if(currentUser) { %>
+          <a class="nav-link" href="/countries/new">Add Country</a>
+          <a class="nav-link" href="/organisations/new">Add Organisation</a>
         <% } %>
       </div>
-      <div class="navbar-nav"></div>
-        <% if(!user){ %>
-          <div class="navbar-nav ms-auto">
-            <a href="/register" class="nav-link ms-auto"><b>Register</b></a>
-            <a href="/login" class="nav-link ms-auto"><b>Login</b></a>
-          </div>
+
+      <!-- Right-side Auth Buttons -->
+      <div class="navbar-nav ms-auto align-items-center">
+        <% if(!currentUser) { %>
+          <a href="/register" class="nav-link"><b>Register</b></a>
+          <a href="/login" class="nav-link"><b>Login</b></a>
         <% } else { %>
-          <div class="navbar-nav ms-auto">
-            <span class="nav-link ms-auto"><b>Welcome <%= currentUser.username %></b></span>
-            <a href="/logout" class="nav-link ms-auto">Logout</a>
-          </div>
+          <span class="nav-link text-light">Welcome <b><%= currentUser.username %></b></span>
+          <a href="/logout" class="nav-link">Logout</a>
         <% } %>
       </div>
     </div>

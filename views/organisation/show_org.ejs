@@ -1,18 +1,31 @@
-<% layout('/layouts/boilerplate.ejs') %>
 
-<div class="mt-3">
-    <img src="/<%= org.logo %>" alt="organisation logo" class="org-logo-img">
-    <h1 class="card-title mt-2"><%= org.name %></h2>
-    <p class="card-text">
-        Headquartes - <%= org.headquarters %>
-        <br>
-        Date of Formation - <%= org.formation_date.toLocaleDateString('en-GB',{day:'numeric', month:'long', year:'numeric'}) %>
-        <br>
-        Purpose - <%= org.purpose %>
-        <br>
-        Official Website - <a href="<%= org.website %>"><%= org.website %></a>
-    </p>
-</div>
-<div class="mt-3">
-    <a href="/organisations"><button class="btn btn-dark">back</button></a>
+<% layout('./layouts/boilerplate.ejs') %>
+
+<div class="container mt-4 mb-5 p-4 bg-light rounded shadow">
+  <div class="text-center mb-4">
+    <img src="/<%= org.logo %>" alt="organisation logo" class="org-logo-img mb-3">
+    <h1 class="card-title"><%= org.name %></h1>
+  </div>
+  <div class="fs-5">
+    <p><strong>Headquarters:</strong> <%= org.headquarters %></p>
+    <p><strong>Date of Formation:</strong> <%= org.formation_date.toLocaleDateString('en-GB',{day:'numeric', month:'long', year:'numeric'}) %></p>
+    <p><strong>Purpose:</strong> <%= org.purpose %></p>
+    <p><strong>Official Website:</strong> <a href="<%= org.website %>" target="_blank"><%= org.website %></a></p>
+  </div>
+
+  <div class="row mt-4">
+    <% if(currentUser && currentUser._id.equals(org.author._id)) { %>
+      <div class="col-md-4 mb-2">
+        <form action="/organisations/<%= org._id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-danger w-100">Delete</button>
+        </form>
+      </div>
+      <div class="col-md-4 mb-2">
+        <a href="/organisations/<%= org._id %>/edit" class="btn btn-primary w-100">Edit</a>
+      </div>
+    <% } %>
+    <div class="col-md-4">
+      <a href="/organisations" class="btn btn-dark w-100">Back</a>
+    </div>
+  </div>
 </div>

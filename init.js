@@ -138,6 +138,8 @@ let initOrgData = [
 
 async function addOrgData(){
     try {
+        await Organisation.deleteMany({});
+        initOrgData = initOrgData.map((obj)=>({...obj, author:'684b5d7778ff94b9b1eafe75'}));
         await Organisation.insertMany(initOrgData);
         console.log("Organisations data saved in DB");
     } catch (err) {
@@ -145,7 +147,7 @@ async function addOrgData(){
     }
 }
 
-// addOrgData();
+addOrgData();
 
 let initCountryData = [
   {
@@ -340,4 +342,4 @@ async function saveCountryData(){
     console.log("error inserting countries :", err);
   }
 }
-saveCountryData();
+// saveCountryData();

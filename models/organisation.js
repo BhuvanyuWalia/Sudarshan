@@ -26,6 +26,10 @@ const organisationSchema = new mongoose.Schema({
     logo: {
         type: String,    // This will store image path or URL
         required: true
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 });
 

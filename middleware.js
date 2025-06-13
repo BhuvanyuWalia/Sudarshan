@@ -1,6 +1,7 @@
 const {registerSchema, countrySchema} = require("./schema.js");
 const ExpressError = require("./utils/ExpressError.js");
 const Country = require("./models/country.js");
+const Organisation = require("./models/organisation.js");
 
 module.exports.isLoggedIn = (req, res, next)=>{
     if(!req.isAuthenticated()){
@@ -41,6 +42,16 @@ module.exports.isAuthor = async (req, res, next) => {
     if (!country.author.equals(req.user._id)) {
         req.flash('error', 'You are not the Author of this data!');
         return res.redirect(`/countries/${_id}`);
+    }
+    next();
+};
+
+module.exports.isOrgAuthor = async (req, res, next) => {
+    const { _id } = req.params;
+    const organisation = await Organisation.findById(_id);
+    if (!organisation || !organisation.author.equals(req.user._id)) {
+        req.flash("error", "You are not the Author of this data!");
+        return res.redirect(`/organisations/${_id}`);
     }
     next();
 };

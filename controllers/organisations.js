@@ -15,8 +15,13 @@ module.exports.renderNewForm = (req, res) => {
 };
 
 module.exports.postNewOrganisation = async (req, res) => {
+    if(!req.file){
+      req.flash('Logo of Organisation is Required!');
+      return res.redirect('/organisation/new');
+    }
     const org = new Organisation(req.body.organisation);
     org.author = req.user._id;
+    org.logo = req.file.path;
     await org.save();
     req.flash("success", "Organisation added successfully!");
     res.redirect("/organisations");

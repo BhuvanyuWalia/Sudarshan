@@ -70,8 +70,6 @@ async function main(){
     await mongoose.connect(process.env.MONGO_URL);
 }
 
-
-
 // -------------------------- BASE ROUTES
 app.get("/",(req,res)=>{
     res.redirect("/home");

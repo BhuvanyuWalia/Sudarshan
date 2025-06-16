@@ -4,12 +4,24 @@ const Organisation = require('../models/organisation.js');
 const organisationController = require("../controllers/organisations.js");
 const { isLoggedIn, isOrgAuthor } = require("../middleware.js");
 const wrapAsync = require("../utils/wrapAsync.js");
+const multer = require('multer');
+const {storage} = require("../cloudinary");
+const upload = multer({storage});
 
 
 // CREATE
 router.route("/new")
     .get(isLoggedIn, organisationController.renderNewForm)
-    .post(isLoggedIn, organisationController.postNewOrganisation);
+    .post(isLoggedIn,  (req, res, next) => {
+    upload.single('logo')(req, res, function (err) {
+        if (err) {
+            console.log("Multer Error:", err);
+            req.flash("error", "File upload failed.");
+            return res.redirect("/countries/new");
+        }
+        next();
+    });
+    },organisationController.postNewOrganisation);
 
 router.get('/find', wrapAsync(organisationController.findOrg));
 

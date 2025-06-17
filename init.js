@@ -20,7 +20,7 @@ let initOrgData = [
       "formation_date": "1945-10-24",
       "purpose": "Maintain international peace and security",
       "website": "https://www.un.org",
-      "logo": "logos/un.png"
+      "logo": "/logos/un.png"
     },
     {
       "name": "World Trade Organization",
@@ -28,7 +28,7 @@ let initOrgData = [
       "formation_date": "1995-01-01",
       "purpose": "Regulate international trade",
       "website": "https://www.wto.org",
-      "logo": "logos/wto.png"
+      "logo": "/logos/wto.png"
     },
     {
       "name": "World Health Organization",
@@ -36,7 +36,7 @@ let initOrgData = [
       "formation_date": "1948-04-07",
       "purpose": "International public health agency",
       "website": "https://www.who.int",
-      "logo": "logos/who.png"
+      "logo": "/logos/who.png"
     },
     {
       "name": "International Monetary Fund",
@@ -44,7 +44,7 @@ let initOrgData = [
       "formation_date": "1944-12-27",
       "purpose": "Ensure global monetary cooperation",
       "website": "https://www.imf.org",
-      "logo": "logos/imf.png"
+      "logo": "/logos/imf.png"
     },
     {
       "name": "World Bank",
@@ -52,7 +52,7 @@ let initOrgData = [
       "formation_date": "1944-07-01",
       "purpose": "Provide financial support to developing countries",
       "website": "https://www.worldbank.org",
-      "logo": "logos/worldbank.png"
+      "logo": "/logos/worldbank.png"
     },
     {
       "name": "Association of Southeast Asian Nations",
@@ -60,7 +60,7 @@ let initOrgData = [
       "formation_date": "1967-08-08",
       "purpose": "Promote political and economic cooperation in Southeast Asia",
       "website": "https://asean.org",
-      "logo": "logos/asean.png"
+      "logo": "/logos/asean.png"
     },
     {
       "name": "North Atlantic Treaty Organization",
@@ -68,7 +68,7 @@ let initOrgData = [
       "formation_date": "1949-04-04",
       "purpose": "Collective defense alliance",
       "website": "https://www.nato.int",
-      "logo": "logos/nato.png"
+      "logo": "/logos/nato.png"
     },
     {
       "name": "BRICS",
@@ -76,7 +76,7 @@ let initOrgData = [
       "formation_date": "2009-06-16",
       "purpose": "Promote economic cooperation among Brazil, Russia, India, China, and South Africa",
       "website": "https://brics2024.gov.in",
-      "logo": "logos/brics.png"
+      "logo": "/logos/brics.png"
     },
     {
       "name": "Organisation of Islamic Cooperation",
@@ -84,7 +84,7 @@ let initOrgData = [
       "formation_date": "1969-09-25",
       "purpose": "Safeguard interests of the Muslim world",
       "website": "https://www.oic-oci.org",
-      "logo": "logos/oic.png"
+      "logo": "/logos/oic.png"
     },
     {
       "name": "European Union",
@@ -92,7 +92,7 @@ let initOrgData = [
       "formation_date": "1993-11-01",
       "purpose": "Political and economic union of European countries",
       "website": "https://europa.eu",
-      "logo": "logos/eu.png"
+      "logo": "/logos/eu.png"
     },
     {
       "name": "G7",
@@ -100,7 +100,7 @@ let initOrgData = [
       "formation_date": "1975-11-15",
       "purpose": "Forum of seven largest advanced economies",
       "website": "https://www.g7germany.de",
-      "logo": "logos/g7.png"
+      "logo": "/logos/g7.png"
     },
     {
       "name": "G20",
@@ -108,7 +108,7 @@ let initOrgData = [
       "formation_date": "1999-12-15",
       "purpose": "Forum for international economic cooperation",
       "website": "https://g20.org",
-      "logo": "logos/g20.png"
+      "logo": "/logos/g20.png"
     },
     {
       "name": "African Union",
@@ -116,7 +116,7 @@ let initOrgData = [
       "formation_date": "2002-07-09",
       "purpose": "Promote unity and solidarity among African countries",
       "website": "https://au.int",
-      "logo": "logos/au.png"
+      "logo": "/logos/au.png"
     },
     {
       "name": "South Asian Association for Regional Cooperation",
@@ -124,7 +124,7 @@ let initOrgData = [
       "formation_date": "1985-12-08",
       "purpose": "Promote regional cooperation among South Asian countries",
       "website": "https://saarc-sec.org",
-      "logo": "logos/saarc.png"
+      "logo": "/logos/saarc.png"
     },
     {
       "name": "International Atomic Energy Agency",
@@ -132,7 +132,7 @@ let initOrgData = [
       "formation_date": "1957-07-29",
       "purpose": "Promote safe and peaceful use of nuclear energy",
       "website": "https://www.iaea.org",
-      "logo": "logos/iaea.png"
+      "logo": "/logos/iaea.png"
     }
 ];
 

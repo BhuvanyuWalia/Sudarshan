@@ -7,7 +7,7 @@ module.exports.getOrganisations = async (req, res) => {
 
 module.exports.showOrganisation = async (req, res) => {
     const org = await Organisation.findById(req.params._id).populate('author');
-    res.render("organisation/show_org.ejs", { org });
+    res.render("organisation/show_org.ejs", { org, query: {} });
 };
 
 module.exports.renderNewForm = (req, res) => {

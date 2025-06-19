@@ -105,3 +105,17 @@ footer a:hover {
     border-color: #dc3545;
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
+#map {
+    height: 30rem;
+    width: 100%;  /* ensure it fills the column */
+}
+.flag-map-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.flag-container {
+    display: flex;
+    justify-content: center;
+}

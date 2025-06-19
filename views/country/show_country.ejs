@@ -1,20 +1,30 @@
-
 <% layout('./layouts/boilerplate.ejs') %>
-
 <div class="container mt-4 mb-5 p-4 bg-light rounded shadow">
-  <div class="text-center mb-4">
-    <img src="<%= country.flag %>" alt="flag" class="country-flag-img mb-3">
-    <h1 class="card-title"><%= country.name %></h1>
-  </div>
-  <div class="fs-5">
-    <p><strong>Capital:</strong> <%= country.capital %></p>
-    <p><strong>Region:</strong> <%= country.region %></p>
-    <p><strong>GDP:</strong> <%= country.GDP.toLocaleString("en-IN") %> US Billion Dollars</p>
-    <p><strong>Population:</strong> <%= country.population.toLocaleString("en-IN") %></p>
-    <p><strong>Currency:</strong> <%= country.currency %></p>
-    <p><strong>Data Author:</strong> <%= country.author ? country.author.username : "Unknown" %></p>
+  <h1 class="text-center mb-3"><%= country.name %></h1>
+  <hr class="border border-primary border-1">
+  <div class="row align-items-start">
+    <!-- LEFT: Flag + Details -->
+    <div class="col-md-6">
+      <div class="text-center mb-3">
+        <img src="<%= country.flag %>" alt="flag" class="country-flag-img mb-3 shadow border border-2">
+      </div>
+      <div class="fs-5">
+        <p><strong>Capital:</strong> <%= country.capital %></p>
+        <p><strong>Region:</strong> <%= country.region %></p>
+        <p><strong>GDP:</strong> <%= country.GDP.toLocaleString("en-IN") %> US Billion Dollars</p>
+        <p><strong>Population:</strong> <%= country.population.toLocaleString("en-IN") %></p>
+        <p><strong>Currency:</strong> <%= country.currency %></p>
+        <p><strong>Data Author:</strong> <%= country.author ? country.author.username : "Unknown" %></p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Map -->
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <div id="map" class="rounded shadow border border-2"></div>
+    </div>
   </div>
 
+  <!-- Buttons -->
   <div class="row mt-4">
     <% if(currentUser && currentUser._id.equals(country.author._id)){ %>
       <div class="col-md-4 mb-2">
@@ -31,3 +41,7 @@
     </div>
   </div>
 </div>
+
+<script>
+  const coordinates = <%- JSON.stringify(country.geometry.coordinates) %>
+</script>

@@ -1,4 +1,7 @@
 const Country = require("../models/country");
+const mbxGeoCoding = require('@mapbox/mapbox-sdk/services/geocoding');
+const mapToken = process.env.MAP_TOKEN;
+const geocodingClient = mbxGeoCoding({ accessToken: mapToken });
 
 module.exports.getCountries = async (req,res)=>{
     const countries = await Country.find({});
@@ -6,6 +9,11 @@ module.exports.getCountries = async (req,res)=>{
 };
 
 module.exports.postNewCountry = async (req, res) => {
+    let response = await geocodingClient.forwardGeocode({
+        query: req.body.country.capital,
+        limit: 1
+    })
+    .send();
     if (!req.file) {
         req.flash("error", "Flag image is required.");
         return res.redirect("/countries/new");
@@ -13,6 +21,7 @@ module.exports.postNewCountry = async (req, res) => {
     const newCountry = new Country(req.body.country);
     newCountry.flag = req.file.path;
     newCountry.author = req.user._id;
+    newCountry.geometry = response.body.features[0].geometry;
     await newCountry.save();
     req.flash("success", "New Country Added!");
     res.redirect("/countries");

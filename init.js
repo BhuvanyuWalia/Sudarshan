@@ -147,44 +147,48 @@ async function addOrgData(){
     }
 }
 
-addOrgData();
+
 
 let initCountryData = [
   {
-    "name": "United States of America",
-    "capital": "Washington, D.C.",
-    "region": "Americas",
-    "GDP": 21433,
-    "population": 331002647,
-    "currency": "United States Dollar (USD)",
-    "flag": "/flags/united_states.png"
+    name: "United States of America",
+    capital: "Washington, D.C.",
+    region: "Americas",
+    GDP: 21433,
+    population: 331002647,
+    currency: "United States Dollar (USD)",
+    flag: "/flags/united_states.png",
+    geometry: { type: "Point", coordinates: [-77.0364, 38.8951] }
   },
   {
-    "name": "China",
-    "capital": "Beijing",
-    "region": "Asia",
-    "GDP": 14342,
-    "population": 1439323776,
-    "currency": "Renminbi (CNY)",
-    "flag": "/flags/china.png"
+    name: "China",
+    capital: "Beijing",
+    region: "Asia",
+    GDP: 14342,
+    population: 1439323776,
+    currency: "Renminbi (CNY)",
+    flag: "/flags/china.png",
+    geometry: { type: "Point", coordinates: [116.3974, 39.9067] }
   },
   {
-    "name": "India",
-    "capital": "New Delhi",
-    "region": "Asia",
-    "GDP": 2875,
-    "population": 1380004385,
-    "currency": "Indian Rupee (INR)",
-    "flag": "/flags/india.png"
+    name: "India",
+    capital: "New Delhi",
+    region: "Asia",
+    GDP: 2875,
+    population: 1380004385,
+    currency: "Indian Rupee (INR)",
+    flag: "/flags/india.png",
+    geometry: { type: "Point", coordinates: [77.2090, 28.6139] }
   },
   {
-    "name": "Japan",
-    "capital": "Tokyo",
-    "region": "Asia",
-    "GDP": 5082,
-    "population": 126476461,
-    "currency": "Yen (JPY)",
-    "flag": "/flags/japan.png"
+    name: "Japan",
+    capital: "Tokyo",
+    region: "Asia",
+    GDP: 5082,
+    population: 126476461,
+    currency: "Yen (JPY)",
+    flag: "/flags/japan.png",
+    geometry: { type: "Point", coordinates: [139.8395, 35.6528] }
   },
   {
     "name": "Germany",
@@ -193,7 +197,8 @@ let initCountryData = [
     "GDP": 3846,
     "population": 83783945,
     "currency": "Euro (EUR)",
-    "flag": "/flags/germany.png"
+    "flag": "/flags/germany.png",
+    geometry: { type: "Point", coordinates: [13.4050, 52.5200] }
   },
   {
     "name": "United Kingdom",
@@ -202,7 +207,8 @@ let initCountryData = [
     "GDP": 2827,
     "population": 67886011,
     "currency": "Pound Sterling (GBP)",
-    "flag": "/flags/united_kingdom.png"
+    "flag": "/flags/united_kingdom.png",
+    geometry: { type: "Point", coordinates: [-0.1276, 51.5072] }
   },
   {
     "name": "France",
@@ -211,7 +217,8 @@ let initCountryData = [
     "GDP": 2716,
     "population": 65273512,
     "currency": "Euro (EUR)",
-    "flag": "/flags/france.png"
+    "flag": "/flags/france.png",
+    geometry: { type: "Point", coordinates: [2.3522, 48.8566] }
   },
   {
     "name": "Italy",
@@ -220,7 +227,8 @@ let initCountryData = [
     "GDP": 2001,
     "population": 60461826,
     "currency": "Euro (EUR)",
-    "flag": "/flags/italy.png"
+    "flag": "/flags/italy.png",
+    geometry: { type: "Point", coordinates: [12.4964, 41.9028] }
   },
   {
     "name": "Brazil",
@@ -229,7 +237,8 @@ let initCountryData = [
     "GDP": 1839,
     "population": 212559417,
     "currency": "Real (BRL)",
-    "flag": "/flags/brazil.png"
+    "flag": "/flags/brazil.png",
+    geometry: { type: "Point", coordinates: [-47.8825, -15.7942] }
   },
   {
     "name": "Canada",
@@ -238,7 +247,8 @@ let initCountryData = [
     "GDP": 1736,
     "population": 37742157,
     "currency": "Canadian Dollar (CAD)",
-    "flag": "/flags/canada.png"
+    "flag": "/flags/canada.png",
+    geometry: { type: "Point", coordinates: [-75.6972, 45.4215] }
   },
   {
     "name": "Russia",
@@ -247,7 +257,8 @@ let initCountryData = [
     "GDP": 1687,
     "population": 145934462,
     "currency": "Russian Ruble (RUB)",
-    "flag": "/flags/russia.png"
+    "flag": "/flags/russia.png",
+    geometry: { type: "Point", coordinates: [37.6173, 55.7558] }
   },
   {
     "name": "Australia",
@@ -256,7 +267,8 @@ let initCountryData = [
     "GDP": 1392,
     "population": 25499884,
     "currency": "Australian Dollar (AUD)",
-    "flag": "/flags/australia.png"
+    "flag": "/flags/australia.png",
+    geometry: { type: "Point", coordinates: [149.1300, -35.2809] }
   },
   {
     "name": "Spain",
@@ -265,7 +277,8 @@ let initCountryData = [
     "GDP": 1400,
     "population": 46754778,
     "currency": "Euro (EUR)",
-    "flag": "/flags/spain.png"
+    "flag": "/flags/spain.png",
+    geometry: { type: "Point", coordinates: [-3.7038, 40.4168] }
   },
   {
     "name": "Mexico",
@@ -274,7 +287,8 @@ let initCountryData = [
     "GDP": 1265,
     "population": 128932753,
     "currency": "Mexican Peso (MXN)",
-    "flag": "/flags/mexico.png"
+    "flag": "/flags/mexico.png",
+    geometry: { type: "Point", coordinates: [-99.1332, 19.4326] }
   },
   {
     "name": "South Korea",
@@ -283,7 +297,8 @@ let initCountryData = [
     "GDP": 1631,
     "population": 51269185,
     "currency": "Won (KRW)",
-    "flag": "/flags/south_korea.png"
+    "flag": "/flags/south_korea.png",
+    geometry: { type: "Point", coordinates: [126.9780, 37.5665] }
   },
   {
     "name": "Indonesia",
@@ -292,7 +307,8 @@ let initCountryData = [
     "GDP": 1119,
     "population": 273523615,
     "currency": "Rupiah (IDR)",
-    "flag": "/flags/indonesia.png"
+    "flag": "/flags/indonesia.png",
+    geometry: { type: "Point", coordinates: [106.8456, -6.2088] }
   },
   {
     "name": "Netherlands",
@@ -301,7 +317,8 @@ let initCountryData = [
     "GDP": 907,
     "population": 17134872,
     "currency": "Euro (EUR)",
-    "flag": "/flags/netherlands.png"
+    "flag": "/flags/netherlands.png",
+    geometry: { type: "Point", coordinates: [4.9041, 52.3676] }
   },
   {
     "name": "Saudi Arabia",
@@ -310,7 +327,8 @@ let initCountryData = [
     "GDP": 779,
     "population": 34813871,
     "currency": "Saudi Riyal (SAR)",
-    "flag": "/flags/saudi_arabia.png"
+    "flag": "/flags/saudi_arabia.png",
+    geometry: { type: "Point", coordinates: [46.6753, 24.7136] }
   },
   {
     "name": "Turkey",
@@ -319,7 +337,8 @@ let initCountryData = [
     "GDP": 761,
     "population": 84339067,
     "currency": "Turkish Lira (TRY)",
-    "flag": "/flags/turkey.png"
+    "flag": "/flags/turkey.png",
+    geometry: { type: "Point", coordinates: [28.9784, 41.0082] }
   },
   {
     "name": "Sweden",
@@ -328,7 +347,8 @@ let initCountryData = [
     "GDP": 538,
     "population": 10099265,
     "currency": "Krona (SEK)",
-    "flag": "/flags/sweden.png"
+    "flag": "/flags/sweden.png",
+    geometry: { type: "Point", coordinates: [18.0686, 59.3293] }
   }
 ];
 
@@ -342,4 +362,7 @@ async function saveCountryData(){
     console.log("error inserting countries :", err);
   }
 }
-// saveCountryData();
+
+
+saveCountryData();
+// addOrgData();
